@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50 text-slate-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ready to Go Django — The Majestic Monolith{% endblock %}</title>
+
+    <!-- Tailwind CSS (Play CDN for instant local styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a5f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- HTMX 4.0 / latest -->
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <!-- Alpine.js for lightweight UI interactivity -->
+    <script defer src="https://unpkg.com/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    <style>
+        .htmx-indicator { display: none; }
+        .htmx-request .htmx-indicator { display: inline-block; }
+    </style>
+</head>
+<body class="flex flex-col min-h-full font-sans antialiased">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🚀</span>
+                <a href="/" class="text-xl font-bold tracking-tight text-slate-900 hover:text-blue-600 transition">
+                    Ready-to-Go <span class="text-blue-600">Django</span>
+                </a>
+                <span class="ml-2 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">2026 Majestic Monolith</span>
+            </div>
+
+            <nav class="flex items-center gap-5 text-sm font-medium text-slate-600">
+                <a href="/admin/" class="hover:text-blue-600 transition flex items-center gap-1.5" target="_blank">
+                    <span>⚡</span> Admin
+                </a>
+                <a href="/api/v1/docs" class="hover:text-blue-600 transition flex items-center gap-1.5" target="_blank">
+                    <span>📖</span> API Docs
+                </a>
+                <a href="http://localhost:8025" class="hover:text-blue-600 transition flex items-center gap-1.5" target="_blank">
+                    <span>📬</span> Mailpit
+                </a>
+                <a href="/metrics" class="hover:text-blue-600 transition flex items-center gap-1.5" target="_blank">
+                    <span>📊</span> Metrics
+                </a>
+                <a href="/up" class="hover:text-blue-600 transition flex items-center gap-1.5" target="_blank">
+                    <span>🟢</span> Health
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+            Built with Django 6.x, PostgreSQL, HTMX, Cotton, Unfold & Granian • Production-ready Docker Environment
+        </div>
+    </footer>
+
+</body>
+</html>

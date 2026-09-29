@@ -1,0 +1,15 @@
+services:
+  web:
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - .:/app
+    environment:
+      DJANGO_ENV: development
+      DEBUG: "True"
+
+  worker:
+    volumes:
+      - .:/app
+    environment:
+      DJANGO_ENV: development
+      DEBUG: "True"

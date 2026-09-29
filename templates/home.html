@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="space-y-10">
+
+    <!-- Hero Section -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl text-slate-900">
+            The Majestic Monolith in <span class="text-blue-600">2026</span>
+        </h1>
+        <p class="text-lg text-slate-600 leading-relaxed">
+            High-velocity full-stack Django architecture. Single repository, server-side rendering,
+            in-process and PostgreSQL consolidation, zero-downtime containerization.
+        </p>
+        <div class="flex items-center justify-center gap-4 pt-2">
+            <a href="/admin/" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition">
+                Open Django Admin →
+            </a>
+            <a href="/api/v1/docs" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 transition">
+                Interactive API Docs
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Status Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Database</div>
+            <div class="text-xl font-bold text-slate-900 mt-1">PostgreSQL 17</div>
+            <div class="text-xs text-emerald-600 font-medium mt-1">✔ Consolidated DB + Cache + Queue</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Admin Panel</div>
+            <div class="text-xl font-bold text-slate-900 mt-1">django-unfold</div>
+            <div class="text-xs text-blue-600 font-medium mt-1">✔ Modern Tailwind Dashboard</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">API Framework</div>
+            <div class="text-xl font-bold text-slate-900 mt-1">django-ninja</div>
+            <div class="text-xs text-purple-600 font-medium mt-1">✔ Pydantic V2 + OpenAPI</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">ASGI Engine</div>
+            <div class="text-xl font-bold text-slate-900 mt-1">Granian (Rust)</div>
+            <div class="text-xs text-amber-600 font-medium mt-1">✔ +34% throughput vs Uvicorn</div>
+        </div>
+    </div>
+
+    <!-- Live HTMX Interactive Demo Card -->
+    <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-2">Live HTMX & Health Verification</h2>
+        <p class="text-sm text-slate-600 mb-6">
+            Click the button below to test asynchronous HTML-over-the-wire DOM swap:
+        </p>
+
+        <div class="flex items-center gap-4">
+            <button
+                hx-get="/up"
+                hx-target="#htmx-result"
+                hx-swap="innerHTML"
+                hx-indicator="#htmx-spinner"
+                class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition">
+                Check Health via HTMX
+            </button>
+            <span id="htmx-spinner" class="htmx-indicator text-sm text-blue-600 font-medium">Checking server...</span>
+        </div>
+
+        <div id="htmx-result" class="mt-4 p-4 rounded-lg bg-slate-50 border border-slate-200 font-mono text-xs text-slate-700">
+            Waiting for trigger...
+        </div>
+    </div>
+
+    <!-- Scaffolding Commands Reference -->
+    <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-2">Code Generation (Rails/Phoenix Velocity)</h2>
+        <p class="text-sm text-slate-600 mb-6">
+            Scaffold complete apps, models, admins, neapolitan CRUD views, APIs, and background tasks in seconds:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+            <div class="bg-slate-900 text-slate-100 p-4 rounded-lg space-y-1">
+                <div class="text-slate-400 font-sans font-semibold mb-2"># 1. Scaffold a full Django app</div>
+                <div class="text-emerald-400">make generate-app name=products</div>
+            </div>
+
+            <div class="bg-slate-900 text-slate-100 p-4 rounded-lg space-y-1">
+                <div class="text-slate-400 font-sans font-semibold mb-2"># 2. Scaffold CRUD model, admin & views</div>
+                <div class="text-emerald-400">make generate-crud app=products model=Product fields="name:str price:decimal"</div>
+            </div>
+
+            <div class="bg-slate-900 text-slate-100 p-4 rounded-lg space-y-1">
+                <div class="text-slate-400 font-sans font-semibold mb-2"># 3. Scaffold django-ninja REST API</div>
+                <div class="text-emerald-400">make generate-api app=products model=Product</div>
+            </div>
+
+            <div class="bg-slate-900 text-slate-100 p-4 rounded-lg space-y-1">
+                <div class="text-slate-400 font-sans font-semibold mb-2"># 4. Scaffold PostgreSQL Background Task</div>
+                <div class="text-emerald-400">make generate-task app=products name=sync_inventory</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

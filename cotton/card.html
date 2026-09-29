@@ -1,0 +1,6 @@
+<div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm {{ class }}">
+    {% if title %}
+    <h3 class="text-lg font-semibold text-gray-900 mb-3">{{ title }}</h3>
+    {% endif %}
+    <div>{{ slot }}</div>
+</div>
