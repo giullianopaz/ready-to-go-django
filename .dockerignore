@@ -13,6 +13,6 @@ htmlcov
 dist
 build
 .env
-README.md
+!README.md
 docs
 tests
