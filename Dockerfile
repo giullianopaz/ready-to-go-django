@@ -3,7 +3,7 @@
 # ============================================================
 FROM python:3.12-slim AS builder
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+RUN pip install --no-cache-dir uv
 
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
